@@ -28,3 +28,19 @@
     mount_filesystem_path: "/buddy/pull-request-2"
     shell: "BASH"
     trigger_condition: "ALWAYS"
+- pipeline: "pr-1"
+  trigger_mode: "ON_EVERY_PUSH"
+  ref_name: "pull/1"
+  ref_type: "PULL_REQUEST"
+  actions:
+  - action: "Execute: ls -la"
+    type: "BUILD"
+    working_directory: "/buddy/pull-request-2"
+    docker_image_name: "library/ubuntu"
+    docker_image_tag: "16.04"
+    execute_commands:
+    - "ls -la"
+    mount_filesystem_path: "/buddy/pull-request-2"
+    shell: "BASH"
+    trigger_condition: "ALWAYS"
+
